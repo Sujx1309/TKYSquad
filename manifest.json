@@ -1,0 +1,43 @@
+{
+    "name": "TKY Squad",
+    "short_name": "TKY",
+    "start_url": "Index.html",
+    "offline": true,
+    "display": "standalone",
+    "background_color": "#0f0e17",
+    "theme_color": "#232946",
+    "icons": [
+      {
+        "src": "TKY.png",
+        "sizes": "any",
+        "type": "image/png"
+      },
+      {
+        "scr": "TKY.png",
+        "sizes": "192×192",
+        "type": "image/png"
+      },
+      {
+        "scr": "TKY.png",
+        "sizes": "512×512",
+        "type": "image/png"
+      }
+    ],
+    "files": [
+      "styles.css",
+      "app.js",
+      "Index.html",
+      "Sw.js",
+      "Login/login.html",
+      "Login/login.js",
+      "Login/style.css",
+      "Login/study.jpeg",
+      "TKY.png",
+      "Notes html/ગણિતNotes.html",
+      "Video html/ગણિતVideos.html",
+      "https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Lexend:wght@100..900&display=swap&font-display=swap"
+    ],
+    "fallback": [],
+    "prefer_related_applications": false
+  }
+  

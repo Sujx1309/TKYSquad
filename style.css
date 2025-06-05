@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&display=swap');
+:root {
+    --primary: #6200EA;
+    --primary-variant: #3700B3;
+    --secondary: #03DAC6;
+    --background: #121212;
+    --surface: #1f1f1f;
+    --error: #B00020;
+    --on-primary: #FFFFFF;
+    --on-secondary: #000000;
+    --on-background: #e0e0e0;
+    --on-surface: #e0e0e0;
+    --on-error: #FFFFFF;
+}
+
+/* Reset some default browser styles */
+body,
+h1,
+h2,
+p,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global styles */
+body {
+    overscroll-behavior: none;
+    touch-action: auto;
+    /* user-scalable: no; */
+    user-select: none;
+  -webkit-user-select: none; /* Disable text selection */
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none; /* Disable iOS context menu */
+    font-family: 'Ubuntu', sans-serif;
+    background-color: var(--background);
+    color: var(--on-background);
+    margin: 0;
+    padding: 0;
+    padding-bottom: 60px;
+    transition: background-color 0.3s ease;
+}
+
+.header {
+    background-color: var(--surface); /* Dark header background color */
+    color: var(--on-surface); /* White header text color */
+    padding: 20px;
+    text-align: center;
+}
+
+.title {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.main {
+    padding: 20px;
+}
+
+.about,
+.download {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.features {
+    margin-bottom: 30px;
+}
+
+.about h2,
+.features h2 {
+    color: white;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.features ul {
+    list-style-type: disc; /* Use disc bullets for feature list */
+    padding-left: 20px;
+}
+
+.list-group-item {
+    padding: 20px;
+    font-family: 'baloo bhai 2', sans-serif;
+    color: #fff;
+}
+
+.botao {
+    width: 125px;
+    height: 45px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 1px 1px rgba(107, 221, 215, 0.37);
+    padding: 5px 10px;
+    background: #6200EA;
+    background: #6200EA;
+    color: #FFFFFF;
+    font-family: Roboto, sans-serif;
+    font-weight: 505;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    filter: drop-shadow(0 0 10px rgba(59, 190, 230, 0.568));
+    transition: 0.40s linear;
+}
+
+.botao .mysvg {
+    display: none;
+}
+
+.botao:hover {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: 0.40s linear;
+}
+
+.botao:hover .texto {
+    display: none;
+}
+
+.botao:hover .mysvg {
+    display: inline;
+}
+
+.botao:hover::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: 100%;
+    height: 100%;
+    border: 3.5px solid transparent;
+    border-top: 3.5px solid #fff;
+    border-right: 3.5px solid #fff;
+    border-radius: 50%;
+    animation: animateC 0.90s linear infinite;
+}
+
+@keyframes animateC {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.coming-soon {
+    color: var(--on-surface); /* Light gray text color for coming soon message */
+    font-style: italic;
+}
+
+.footer {
+    background-color: var(--surface); /* Dark footer background color */
+    color: var(--on-surface); /* White footer text color */
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive CSS */
+@media only screen and (min-width: 600px) {
+    .botao {
+        width: 100px;
+        height: 35px;
+        font-size: 14px;
+    }
+}
+
+/* Desktop Error */
+#desktopError {
+    display: none;
+}
+
+@media only screen and (min-width: 1024px) {
+    #desktopError {
+        display: block;
+        background-color: #f44336;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    body > *:not(#desktopError) {
+        display: none;
+    }
+}

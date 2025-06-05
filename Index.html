@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="robots" content="nofollow">
+    <meta name="referrer" content="no-referrer">
+    <title>TKY Squad</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="study for 10th class important questions, videos, oneshots and more for all subject">
+
+    <meta name="author" content="Sujal Gohel">
+
+    <link rel="icon" href="TKY.png" type="image/x-icon">
+
+
+<link rel="manifest" href="manifest.json">
+    
+</head>
+<body>
+<script>
+    // Check if the app is running in PWA standalone mode
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+    // Redirect to install.html if not in standalone mode
+    if (!isStandalone) {
+      window.location.href = 'install.html'; // Redirect to install instructions
+    }
+  </script>
+
+    <div class="container">
+        
+     <!-- Home Section -->
+<div id="home-section" class="app-section">
+    <button id="logout" class="btn btn-danger btn-block d-none">Logout</button>
+    <div class="home text-center my-4">
+        <h1>TKY Squad</h1>
+        <hr>
+        <p>This app is specifically designed for 10th-grade students, providing useful resources for all exams, including board exams.</p>
+    </div>
+</div>
+        
+        <div id="books-section" class="app-section">
+            <ul id="subjects-list" class="list-group">
+            </ul>
+        </div>
+        <div id="news-section" class="app-section d-none">
+            <H1>News</H1><br>
+        </div>
+        <div id="homework-section" class="app-section d-none">
+            <h1>homework</h1><br>
+        </div>
+        <div id="content" class="app-section d-none">
+
+                <div id="loading-indicator" class="d-none">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            
+        </div>
+
+        <div id="bottom-nav">
+            <button id="nav-home" class="btn btn-light"><i class="fas fa-home"></i></button>
+            <button id="nav-book" class="btn btn-light"><i class="fas fa-book"></i></button>
+            <button id="nav-news" class="btn btn-light"><i class="fas fa-newspaper"></i></button>
+            <button id="nav-homework" class="btn btn-light"><i class="fas fa-tasks"></i></button>
+        </div>
+    </div>
+
+    <!-- Popup Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="logoutModalLabel">Logout</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to logout?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" id="confirm-logout" class="btn btn-danger">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="desktopError">
+        This app is for phones only.
+     </div>
+<script>
+        setInterval(() => {
+  // Check if 'eruda' is loaded
+  if (typeof eruda !== "undefined") {
+    window.location.reload(); // Reload the page to reset
+  }
+}, 100);
+
+            // Disable Right-Click
+    document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+    // Disable Inspect Element (F12, Ctrl+Shift+I, etc.)
+    document.addEventListener("keydown", (e) => {
+    if (
+        e.key === "F12" || // F12
+        (e.ctrlKey && e.shiftKey && e.key === "I") || // Ctrl+Shift+I
+        (e.ctrlKey && e.key === "u") || // Ctrl+U (View Source)
+        (e.ctrlKey && e.shiftKey && e.key === "J") // Ctrl+Shift+J
+    ) {
+        e.preventDefault();
+    }
+    });
+
+        </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+ navigator.serviceWorker.register('Sw.js')
+   .then(registration => {
+     console.log('Service worker registration successful:', registration);
+   })
+   .catch(err => {
+     console.log('Service worker registration failed:', err);
+   });
+}
+
+// Check if the browser supports service workers
+if ('serviceWorker' in navigator) {
+ // Register the service worker
+ navigator.serviceWorker.register('Sw.js')
+   .then(function(registration) {
+     console.log('Service Worker registered with scope:', registration.scope);
+   })
+   .catch(function(error) {
+     console.error('Service Worker registration failed:', error);
+   });
+}
+
+// Check if the browser supports PWA installation
+window.addEventListener('beforeinstallprompt', function(event) {
+ // Prevent the default browser install prompt
+ event.preventDefault();
+ // Show your custom install prompt
+ // You might show a button or other UI element to trigger this
+ showInstallPrompt(event);
+});
+
+function showInstallPrompt(event) {
+ // Show your custom install prompt here
+ // For example, display a button to install the app
+ const installButton = document.getElementById('install-button');
+ installButton.addEventListener('click', function() {
+   // Trigger the browser's install prompt
+   event.prompt();
+   // Wait for the user to respond to the prompt
+   event.userChoice.then(function(choiceResult) {
+     if (choiceResult.outcome === 'accepted') {
+       console.log('User accepted the install prompt');
+     } else {
+       console.log('User dismissed the install prompt');
+     }
+   });
+ });
+}
+        </script>
+        <script>
+  fetch('data/Homework.json')
+  .then(response => response.json())
+  .then(data => {
+    const homeworkSection = document.getElementById('homework-section');
+
+    data.forEach(hw => {
+     const hwItem = `
+  <div style="margin-bottom: 20px; border-bottom: 1px solid #444; padding-bottom: 12px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 15px; color: #bbb;">
+      <div><strong>${hw.date}</strong> - <em>${hw.subject}</em></div>
+      <div style="font-weight: bold; font-size: 17px; color: #fff;">${hw.title}</div>
+    </div>
+    <p style="margin: 5px 0 0; font-size: 16px; color: #ddd; text-align: left;">${hw.details}</p>
+  </div>
+`;
+      homeworkSection.innerHTML += hwItem;
+    });
+  })
+  .catch(error => {
+    console.error('Error loading homework:', error);
+  });
+  
+  fetch('data/News.json')
+  .then(response => response.json())
+  .then(data => {
+    const newsSection = document.getElementById('news-section');
+
+    data.forEach(news => {
+      const newsItem = `
+  <div style="margin-bottom: 20px; border-bottom: 1px solid #ccc; padding-bottom: 12px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 15px; color: #bbb;">
+      <div><strong>${news.date}</strong></div>
+      <div style="font-weight: bold; font-size: 17px; color: #fff;">${news.headline}</div>
+    </div>
+    <p style="margin: 5px 0 0; font-size: 16px; color: #ddd; text-align: left;">
+      ${news.description}
+    </p>
+  </div>
+`;
+      newsSection.innerHTML += newsItem;
+    });
+  })
+  .catch(error => {
+    console.error('Error loading news:', error);
+  });
+        </script>
+        
+</body>
+</html>
