@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="robots" content="nofollow">
+    <meta name="referrer" content="no-referrer">
+    <title>login</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-section" class="app-section">
+        <img src="../TKY.png" class="logo" alt="Logo">
+        <h2 class="login">Login</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <button type="button" id="guest-login" class="btn btn-secondary btn-block">Login as Guest</button>
+        </form>
+        <div id="desktopError">
+            This app is for phones only.
+         </div>
+    </div>
+<script>
+        setInterval(() => {
+  // Check if 'eruda' is loaded
+  if (typeof eruda !== "undefined") {
+    window.location.reload(); // Reload the page to reset
+  }
+}, 100);
+
+            // Disable Right-Click
+    document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+    // Disable Inspect Element (F12, Ctrl+Shift+I, etc.)
+    document.addEventListener("keydown", (e) => {
+    if (
+        e.key === "F12" || // F12
+        (e.ctrlKey && e.shiftKey && e.key === "I") || // Ctrl+Shift+I
+        (e.ctrlKey && e.key === "u") || // Ctrl+U (View Source)
+        (e.ctrlKey && e.shiftKey && e.key === "J") // Ctrl+Shift+J
+    ) {
+        e.preventDefault();
+    }
+    });
+
+        </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

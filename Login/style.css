@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Lexend:wght@100..900&display=swap');
+
+body {
+    overscroll-behavior: none;
+    touch-action: auto;
+    /* user-scalable: no; */
+    user-select: none;
+  -webkit-user-select: none; /* Disable text selection */
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none; /* Disable iOS context menu */
+    background-image: url('study.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    font-family: "Dosis", sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    color: #ffffff;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.app-section {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    background-color: #2a2a2a;
+}
+
+#bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    height: 60px;
+    justify-content: space-around;
+    border-top: 1px solid #444;
+    padding: 10px 0;
+    background-color: #333;
+}
+
+#bottom-nav .btn {
+    height: 100%;
+    width: 20%;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    color: #ffffff;
+    background-color: #0078f2;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+#bottom-nav .btn:hover {
+    background-color: #005bb5;
+}
+
+#photos img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#username, #password {
+    border-radius: 40px;
+    padding: 10px;
+    border: 1px solid #0078f2;
+    background-color: #333;
+    color: #fff;
+}
+
+#guest-login {
+    background-color: transparent;
+    border: none;
+    color: #0078f2;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#guest-login:hover {
+    color: #005bb5;
+}
+
+.fas {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.btn {
+    border-radius: 20px;
+    padding: 10px;
+    color: #ffffff;
+    background-color: #0078f2;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #005bb5;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+.mt-3 {
+    margin-top: 1rem !important;
+}
+
+.logo {
+    margin: 20px;
+    height: 100px;
+    width: auto;
+    align-content: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.logout {
+    display: none;
+}
+
+.list-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #0078f2;
+    color: white;
+    border: 1px solid #005bb5;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.list-group-item:hover {
+    background-color: #005bb5;
+    transform: scale(1.02);
+}
+
+.list-group-item .item-content {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.list-group-item .item-actions {
+    display: flex;
+    align-items: center;
+}
+
+.list-group-item .item-actions .btn {
+    margin-left: 5px;
+}
+
+/* Hide Google Translate popup */
+body > .skiptranslate,
+body > .goog-te-banner-frame,
+body > .goog-te-gadget-icon,
+body > .goog-te-gadget,
+body > .goog-te-menu,
+body > .goog-te-menu-frame,
+body > .goog-te-menu2 {
+    display: none !important;
+}
+
+/* Desktop Error */
+#desktopError {
+    display: none;
+}
+
+@media only screen and (min-width: 1024px) {
+    #desktopError {
+        display: block;
+        background-color: #f44336;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    body > *:not(#desktopError) {
+        display: none;
+    }
+}
