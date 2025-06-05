@@ -1,0 +1,85 @@
+<style>
+    .video-container {
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+        border: 2px solid #ccc;
+        overflow: hidden;
+        transition: opacity 0.3s ease-in-out;
+    }
+    .thumbnail {
+        width: 40%;
+        height: 80px;
+        border-radius: 10px;
+        border: 2px solid #ccc;
+        cursor: pointer;
+    }
+    .small-video-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+    }
+</style>
+
+<!-- Main Video -->
+<iframe id="mainVideo" class="video-container" 
+    src="https://www.youtube-nocookie.com/embed/_wWr5oLxU0Y?playlist=_wWr5oLxU0Y&iv_load_policy=3&loop=1&rel=0&modestbranding=1&showinfo=0&controls=1" 
+    frameborder="2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+</iframe>
+
+<h6 id="mainVideoTitle">IMP Questions</h6>
+
+<!-- Small Video (Initially a Thumbnail) -->
+<div class="small-video-container" id="smallVideoContainer">
+    <img id="smallVideoThumbnail" class="thumbnail"
+        src="https://img.youtube.com/vi/ckvvnmTStDA/0.jpg" 
+        alt="Thumbnail">
+    <h6 id="smallVideoTitle">Gujarati | IMP જોડકાં જોડો</h6>
+</div>
+
+<script>
+    let mainVideo = document.getElementById("mainVideo");
+    let mainTitle = document.getElementById("mainVideoTitle");
+    let thumbnail = document.getElementById("smallVideoThumbnail");
+    let smallTitle = document.getElementById("smallVideoTitle");
+    let smallVideoContainer = document.getElementById("smallVideoContainer");
+
+    let smallVideoId = "ckvvnmTStDA"; // Small video ID
+    let mainVideoId = "_wWr5oLxU0Y"; // Main video ID
+    let smallVideoText = "Gujarati | IMP જોડકાં જોડો"; // Small video title
+    let mainVideoText = "IMP Questions"; // Main video title
+
+    function swapVideos() {
+        // Fade out before swapping
+        mainVideo.style.opacity = "0";
+
+        setTimeout(() => {
+            // Swap video IDs
+            let tempVideoId = mainVideoId;
+            mainVideoId = smallVideoId;
+            smallVideoId = tempVideoId;
+
+            // Swap video titles
+            let tempText = mainVideoText;
+            mainVideoText = smallVideoText;
+            smallVideoText = tempText;
+
+            // Update main video src
+            mainVideo.src = `https://www.youtube-nocookie.com/embed/${mainVideoId}?playlist=${mainVideoId}&iv_load_policy=3&loop=1&rel=0&modestbranding=1&showinfo=0&controls=1`;
+
+            // Update main video title
+            mainTitle.innerText = mainVideoText;
+
+            // Update small video thumbnail and title
+            thumbnail.src = `https://img.youtube.com/vi/${smallVideoId}/0.jpg`;
+            smallTitle.innerText = smallVideoText;
+
+            // Fade in after swapping
+            mainVideo.style.opacity = "1";
+        }, 300); // Match fade-out duration
+    }
+
+    smallVideoContainer.addEventListener("click", swapVideos);
+</script>
