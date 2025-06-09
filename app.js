@@ -334,6 +334,8 @@ class TKY {
 
     handleGuestUser() {
         this.elements.navBook.addClass('d-none');
+this.elements.navHomework.addClass('d-none');
+            this.elements.navNews.addClass('d-none');
         this.elements.homeSection.html(`
             <div id="home-section" class="app-section">
                 <button id="logout" class="btn btn-danger btn-block d-none">Logout</button>
